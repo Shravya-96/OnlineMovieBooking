@@ -1,0 +1,81 @@
+
+<div class="container">
+    <form #userForm="ngForm" (ngSubmit)='onSubmit(userForm.value)'>
+
+        <div class="form-group col-4">
+            <label for="city">City</label>
+            <input type="text" class="form-control" id="city" #cityRef='ngModel'  placeholder="City" [(ngModel)]="book.city" name="city" required>
+            <div *ngIf='cityRef.errors && cityRef.touched' class="alert alert-danger">city is required</div>
+          </div> 
+
+        <div class="form-group col-4">
+            <label for="theatreid">Theatre Id</label>
+            <!--<input type="text" class="form-control" id="theatreid" placeholder="theatreid" [(ngModel)]="book.theatreId" name="theatreId">-->
+            <select id="theatreid" class="form-control" #theatreRef='ngModel' placeholder="theatreId" [(ngModel)]="book.theatreId" name="theatreId" required>
+ 
+              <option>2001</option>
+              <option>2002</option>
+              
+  
+            </select>
+            <div *ngIf='theatreRef.errors && theatreRef.touched' class="alert alert-danger">theatreId is required</div>
+          </div> 
+
+      <div class="form-group col-4">
+          <label for="movieid">Movie Id</label>
+         <!-- <input type="text" class="form-control" id="movieid" placeholder="movieid" [(ngModel)]="book.movieId" name="movieId">-->
+          <select id="movieid" class="form-control" placeholder="movieid" #movieRef='ngModel' [(ngModel)]="book.movieId" name="movieId" required>
+ 
+            <option>3001</option>
+            <option>3002</option>
+            <option>3003</option>
+            <option>3004</option>
+
+          </select>
+          <div *ngIf='movieRef.errors && movieRef.touched' class="alert alert-danger">movie is required</div>
+       
+        </div>   
+
+        <div class="form-group col-4">
+              <label for="showid">Show Id</label>
+              <!--<input type="text" class="form-control" id="showid" placeholder="showid" [(ngModel)]="book.showId" name="showId">-->    
+                  <select id="showid" class="form-control" #showRef='ngModel' placeholder="showid" [(ngModel)]="book.showId" name="showId" required>
+               
+                <option>4001</option>
+                <option>4002</option>
+                <option>4003</option>
+                <option>4004</option>
+               
+              </select>
+              <div *ngIf='showRef.errors && showRef.touched' class="alert alert-danger">show is required</div>
+        </div>
+
+        <div class="form-group col-9">
+            <label for="dateandtime">Date and time</label>
+           
+              <input class="form-control col-5" type="datetime" #dateRef='ngModel' placeholder="yyyy-mm-dd hh:mm" value="2011-08-19T13:45:00" id="dateandtime" [(ngModel)]="book.dateandtime" name="dateandtime" required>
+              <div *ngIf='dateRef.errors && dateRef.touched' class="alert alert-danger">Date is required</div>
+        </div> 
+          <div class="form-group col-4">
+              <label for="seats">No.of seats</label>
+              <!--<input type="text" class="form-control " id="movie" placeholder="seats" [(ngModel)]="book.numOfSeat" name="numOfSeat">-->
+              <select id="seats" class="form-control" placeholder="seats" #seatRef='ngModel' [(ngModel)]="book.numOfSeat" name="numOfSeat">
+           
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+              </select>
+              <div *ngIf='seatRef.errors && seatRef.touched' class="alert alert-danger">seat is required</div>
+          </div>
+         
+          <div class="form-group col-2">
+              <input [disabled]="userForm.invalid" type="submit" value="Submit" class=" btn btn-outline-primary text-uppercase">
+             <!-- <button type="submit" class="btn btn-outline-primary">Submit</button>-->
+          </div>       
+          
+    </form>
+  </div>
+  
